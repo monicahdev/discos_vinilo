@@ -1,0 +1,36 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    text-align: center;
+    color: rgb(10, 137, 175);
+    font-weight: bold;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin-left: 1.5rem;
+    
+}
+
+.vinyl {
+    border: 0.1rem dotted rgb(93, 73, 181);
+    border-radius: 5px;
+    padding: 10px;
+    width: 200px;
+    text-align: center;
+
+}
+.vinyl img {
+    max-width: 100%;
+    height: auto;
+    border: 1px solid rgb(93, 73, 181);
+    border-radius: 5px;
+}
+.vinyl h2 {
+    color: rgb(10, 137, 175);
+}
