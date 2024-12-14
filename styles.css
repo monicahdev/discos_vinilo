@@ -35,3 +35,24 @@ h1 {
     color: rgb(10, 137, 175);
 }
 
+.menu {
+    display: flex;
+    overflow: hidden;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+.menu a {
+    display: block;
+    color: rgb(93, 73, 181);
+    text-align: center;
+    padding: 1rem 1rem;
+    text-decoration: none;
+    border: solid 1px;
+    border-radius: 10px;
+    margin: 0 0.2rem;
+
+    
+}
+.menu a:hover {
+    color: rgb(10, 137, 175);
+}
