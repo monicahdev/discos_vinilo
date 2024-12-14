@@ -1,6 +1,8 @@
+
 <?php
 //Importar credenciales de la configuración de la base de datos
 require 'db_config.php';
+
 
 try {
     //Consultar en la tabla y mostrar 1 solo disco
@@ -9,11 +11,12 @@ try {
 
     //Traer el disco de la consulta
     $vinyl_record = $statement->fetch(PDO::FETCH_ASSOC);
-
+    
     /*Asegurarse de que existe el disco y mostrarlo con estas características*/
     if ($vinyl_record) {
         
         echo "<h1>Discos de vinilo</h1>";
+        include 'menu.php';
         echo "<p><strong>Título del disco: </strong>" . htmlentities($vinyl_record['titulo_album']) . "</p>";
         echo "<p><strong>Artista: </strong>" . htmlentities($vinyl_record['artista']) . "</p>";
         echo "<p><strong>Género musical: </strong>" . htmlentities($vinyl_record['genero_musical']) . "</p>";
@@ -28,4 +31,7 @@ try {
     //Mensaje en caso de error
     echo "Error al obtener el disco: " . $e->getMessage(); 
 }
+
 ?>
+
+

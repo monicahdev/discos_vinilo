@@ -30,7 +30,9 @@ try {
         <link rel="stylesheet" href="styles.css">
     </head>
     <body>
+        
         <h1>Tienda de vinilos</h1>
+        <?php include 'menu.php'; ?>
         <div class="container">
             <?php foreach ($all_vinyls as $vinyl_record): ?>
                 <div class="vinyl">
