@@ -2,18 +2,24 @@
 //Importar credenciales de la configuración de la base de datos
 require 'db_config.php';
 
-// Obtener id de disco
-$id = isset($_GET['id']) ? (int)$_GET['id'] : 0;
 
-// Consultar disco por id
-$statement = $library_pdo->prepare("SELECT * FROM discosvinilo WHERE id = :id");
-$statement->bindValue(':id', $id, PDO::PARAM_INT);
-$statement->execute();
-$vinyl_record = $statement->fetch(PDO::FETCH_ASSOC);
+try {
+    // Obtener id de disco
+    $id = isset($_GET['id']) ? (int)$_GET['id'] : 0;
 
-if (!$vinyl_record) {
-    echo "Disco no encontrado.";
-    exit;
+    // Consultar disco por id
+    $statement = $library_pdo->prepare("SELECT * FROM discosvinilo WHERE id = :id");
+    $statement->bindValue(':id', $id, PDO::PARAM_INT);
+    $statement->execute();
+    $vinyl_record = $statement->fetch(PDO::FETCH_ASSOC);
+
+    if (!$vinyl_record) {
+        echo "Disco no encontrado.";
+        die;
+    }
+}
+catch (PDOException $e) {
+    die("Error al obtener el disco: " . $e->getMessage());
 }
 ?>
 

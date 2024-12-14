@@ -34,7 +34,11 @@ try {
         <div class="container">
             <?php foreach ($all_vinyls as $vinyl_record): ?>
                 <div class="vinyl">
-                    <h2><?= htmlentities($vinyl_record['titulo_album']) ?></h2>
+                    <h2>
+                        <a href="post.php?id=<?= urlencode($vinyl_record['id']) ?>">
+                            <?= htmlentities($vinyl_record['titulo_album']) ?>
+                        </a>
+                    </h2>
                     <p><strong>Artista:</strong> <?= htmlentities($vinyl_record['artista']) ?></p>
                     <p><strong>Precio:</strong> €<?= htmlentities($vinyl_record['precio']) ?></p>
                     <img src="<?= htmlentities($vinyl_record['imagen_portada']) ?>" alt="Portada del disco">
