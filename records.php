@@ -93,6 +93,7 @@ try {
     </head>
     <body>
         <h1>Tienda de vinilos</h1>
+        
         <div class="container">
             <h2>Filtrar y ordenar</h2>
             <div class="filters">
@@ -149,19 +150,27 @@ try {
                 <?php endif; ?>
         </div>
         <div class="pagination">
+   
             <?php if ($total_pages > 1): ?>
                 <ul>
-                    <?php for ($i = 1; $i <= $total_pages; $i++): ?>
+                    <?php 
+                    for ($i = 1; $i <= $total_pages; $i++): 
+                        $url = "?page=$i";
+                        $url .= "&artist=" . urlencode($artist_filter);
+                        $url .= "&genre=" . urlencode($genre_filter);
+                        $url .= "&status=" . urlencode($record_status_filter);
+                        $url .= "&order_by=" . urlencode($order_by);
+                        $url .= "&order_dir=" . urlencode($order_dir);
+                    ?>
                     <li>
-                        <a href="?page=<?= $i ?>&artist=<?= urlencode($artist_filter) ?>&genre=<?= urlencode($genre_filter) ?>&status=<?= urlencode($record_status_filter) ?>&order_by=<?= urlencode($order_by) ?>&order_dir=<?= urlencode($order_dir) ?>" 
-                        <?= $i === $page ? 'style="font-weight: bold;"' : '' ?>>
-                        <?= $i ?>
+                        <a href="<?= $url ?>" <?= $i === $page ? 'style="font-weight: bold;"' : '' ?>>
+                            <?= $i ?>
                         </a>
                     </li>
                     <?php endfor; ?>
                 </ul>
             <?php endif; ?>
-        </div>    
+        </div>
     </body>
 </html>
 
