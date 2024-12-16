@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <title><?= htmlentities($vinyl_record['titulo_album']) ?> - Tienda de vinilos</title>
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Detalle vinilo - Tienda de vinilos</title>
+        <link rel="stylesheet" href="styles.css">
+    </head>
     <body>
         <?php
             //Importar credenciales de la configuración de la base de datos
             require 'db_config.php';
-
 
             try {
                 // Obtener id de disco
@@ -32,15 +33,14 @@
         <h1>Tienda de vinilos</h1>
         <?php include 'menu.php'; ?>
         <div class="vinyl">
-        <h2><?= htmlentities($vinyl_record['titulo_album']) ?></h2>
-        <p>Artista: <?= htmlentities($vinyl_record['artista']) ?></p>
-        <p>Género: <?= htmlentities($vinyl_record['genero_musical']) ?></p>
-        <p>Año: <?= htmlentities($vinyl_record['lanzamiento']) ?></p>
-        <p>Estado: <?= htmlentities($vinyl_record['estado_disco']) ?></p>
-        <p>Precio: <?= htmlentities($vinyl_record['precio']) ?> €</p>
-        <img src="<?= htmlentities($vinyl_record['imagen_portada']) ?>" alt="Portada de <?= htmlentities($vinyl_record['titulo_album']) ?>" width="200">
-        <br>
+            <h2><?= htmlentities($vinyl_record['titulo_album']) ?></h2>
+            <p><strong>Artista:</strong> <?= htmlentities($vinyl_record['artista']) ?></p>
+            <p><strong>Género:</strong> <?= htmlentities($vinyl_record['genero_musical']) ?></p>
+            <p><strong>Año:</strong> <?= htmlentities($vinyl_record['lanzamiento']) ?></p>
+            <p><strong>Estado:</strong> <?= htmlentities($vinyl_record['estado_disco']) ?></p>
+            <p><strong>Precio:</strong> <?= htmlentities($vinyl_record['precio']) ?> €</p>
+            <img src="<?= htmlentities($vinyl_record['imagen_portada']) ?>" alt="Portada de <?= htmlentities($vinyl_record['titulo_album']) ?>" width="200">
+            <br>
         </div>
-        <a href="records.php">Mira todos los discos.</a>
     </body>
 </html>

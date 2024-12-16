@@ -1,40 +1,3 @@
-<?php
-    require 'db_config.php';
-
-    $message = '';
-
-    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-        $username = $_POST['username'];
-        $nombre = $_POST['nombre'];
-        $apellidos = $_POST['apellidos'];
-        $password = $_POST['password'];
-        $confirm_password = $_POST['confirm_password'];
-
-        if ($password !== $confirm_password) {
-            $message = 'Las contraseñas no coinciden.';
-        } else {
-            $hashed_password = password_hash($password, PASSWORD_BCRYPT);
-
-            // Insertar el usuario en la tabla users_pec3
-            $new_user_insertion = "INSERT INTO users_pec3 (username, nombre, apellidos, password) VALUES (:username, :nombre, :apellidos, :password)";
-            $statement = $library_pdo->prepare($new_user_insertion);
-
-            try {
-                $statement->execute([
-                    ':username' => $username,
-                    ':nombre' => $nombre,
-                    ':apellidos' => $apellidos,
-                    ':password' => $hashed_password
-                ]);
-                $message = '¡Registro exitoso!';
-            } catch (Exception $e) {
-                $message = 'El nombre de usuario ya existe.';
-            }
-        }
-    }
-?>
-
-
 <!DOCTYPE html>
 <html>
     <head>
@@ -44,7 +7,41 @@
         <link rel="stylesheet" href="styles.css">
     </head>
     <body>
-        
+        <?php
+            require 'db_config.php';
+
+            $message = '';
+
+            if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                $username = $_POST['username'];
+                $nombre = $_POST['nombre'];
+                $apellidos = $_POST['apellidos'];
+                $password = $_POST['password'];
+                $confirm_password = $_POST['confirm_password'];
+
+                if ($password !== $confirm_password) {
+                    $message = 'Las contraseñas no coinciden.';
+                } else {
+                    $hashed_password = password_hash($password, PASSWORD_BCRYPT);
+
+                    // Insertar el usuario en la tabla users_pec3
+                    $new_user_insertion = "INSERT INTO users_pec3 (username, nombre, apellidos, password) VALUES (:username, :nombre, :apellidos, :password)";
+                    $statement = $library_pdo->prepare($new_user_insertion);
+
+                    try {
+                        $statement->execute([
+                            ':username' => $username,
+                            ':nombre' => $nombre,
+                            ':apellidos' => $apellidos,
+                            ':password' => $hashed_password
+                        ]);
+                        $message = '¡Registro exitoso!';
+                    } catch (Exception $e) {
+                        $message = 'El nombre de usuario ya existe.';
+                    }
+                }
+            }
+        ?>
         <h1>Tienda de vinilos</h1>
         <?php include 'menu.php'; ?>
         <div class="container">

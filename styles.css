@@ -9,6 +9,11 @@ h1 {
     font-weight: bold;
 }
 
+h2 {
+    color: rgb(10, 137, 175);
+    font-weight: bold;
+}
+
 .container {
     display: flex;
     flex-wrap: wrap;
@@ -35,6 +40,31 @@ h1 {
     color: rgb(10, 137, 175);
 }
 
+.pagination {
+    display: grid;
+    place-items: center; 
+    margin: 0;
+}
+.pagination ul li {
+    color: rgb(10, 137, 175);
+    font-weight: bold;
+    list-style-type: none; 
+    text-decoration: none;
+    display: inline-block;
+    margin: 0.25rem;
+}
+
+.active_page {
+    color: rgb(10, 137, 175);
+    font-weight: bold;
+    border: 1px solid rgb(10, 137, 175);
+    text-decoration: none;        
+}
+
+.active_page:hover {
+    color: rgb(93, 73, 181);
+}
+
 .menu {
     display: flex;
     overflow: hidden;
@@ -50,10 +80,20 @@ h1 {
     border: solid 1px;
     border-radius: 10px;
     margin: 0 0.2rem;
-
-    
 }
 .menu a:hover {
     color: rgb(10, 137, 175);
 }
 
+.menu a:active {
+    color: rgb(10, 137, 175);
+}
+
+.vinyl label {
+    color: rgb(93, 73, 181);
+    font-weight: bold;
+}
+
+#error {
+    color:rgb(93, 73, 181) !important;
+}

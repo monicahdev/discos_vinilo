@@ -7,6 +7,7 @@
         <link rel="stylesheet" href="styles.css">
     </head>
     <body>
+    <?php session_start(); ?>
         <?php
         // Importar credenciales de la configuración de la base de datos
         require 'db_config.php';
@@ -29,7 +30,7 @@
             die("Error al obtener los discos: " . $e->getMessage());
         }
         ?>    
-
+            
         <h1>Tienda de vinilos</h1>
         <?php include 'menu.php'; ?>
         <div class="container">
